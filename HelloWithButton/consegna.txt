@@ -1,0 +1,8 @@
+Aggiungere un secondo pulsante
+- Deve essere posizionato sotto il primo
+- Deve contenere il testo "+1"
+
+Alla pressione del nuovo pulsante, il contenuto della TextView (interpretato
+come un numero intero) deve essere incrementato di 1
+
+Se il contenuto della TextView non e' un numero valido, si visualizza "0"
