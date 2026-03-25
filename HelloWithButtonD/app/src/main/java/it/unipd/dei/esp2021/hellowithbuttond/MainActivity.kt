@@ -3,6 +3,7 @@ package it.unipd.dei.esp2021.hellowithbuttond
 import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowInsetsController.APPEARANCE_LIGHT_NAVIGATION_BARS
 import android.view.WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
@@ -13,6 +14,8 @@ import androidx.core.view.WindowCompat
 
 class MainActivity : AppCompatActivity()
 {
+    val mTAG = javaClass.simpleName
+
     // Called when the activity is first created
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -35,6 +38,7 @@ class MainActivity : AppCompatActivity()
 
         // Set the action to be performed when the button is pressed
         bu.setOnClickListener { // Perform action on click
+            Log.d(mTAG, "Button i pressed")
             tv.text = getString(R.string.good_job)
         }
 
@@ -47,6 +51,7 @@ class MainActivity : AppCompatActivity()
             val txt = tvPlus.getText().toString()
             val txtValue = txt.toIntOrNull()
 
+            Log.d(mTAG, "Button i pressed")
             tvPlus.text = txtValue?.inc()?.toString() ?: "0"
         }
 
