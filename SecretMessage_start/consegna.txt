@@ -1,0 +1,21 @@
+ESERCIZIO 1
+Aggiungere un terzo composable per la visualizzazione del messaggio codificato. Il composable si deve chiamare EncryptScreen e deve essere definito in EncryptScreen.kt.
+L'interfaccia utente deve mostrare due Text uno sotto l'altro: il primo dice semplicemente "Here is your encrypted message:", il secondo conterrà il messaggio codificato.
+Mediante Navigation, richiamare EncryptScreen alla pressione del pulsante in MessageScreen. Per il momento, non passare alcun parametro. Quando si naviga a EncryptScreen va rimosso MessageScreen dal back stack.
+
+Suggerimento: non serve aggiungere la stringa "Here is your encrypted message:" perché è già in strings.xml.
+
+Suggerimento: va modificata la navigazione in MainActivity.kt.
+
+Per rimuovere MessageScreen dal back stack:
+https://developer.android.com/guide/navigation/backstack#pop.
+
+
+ESERCIZIO 2
+Alla pressione del pulsante, MessageScreen passa a EncryptScreen la stringa inserita dall'utente. Il passaggio avviene attraverso una stringa codificata come Uri.
+EncryptScreen esegue la codifica e mostra il messaggio codificato.
+
+Suggerimento: vanno modificati i sorgenti dei due composable coinvolti.
+
+Suggerimento: in MainActivity va aggiunto un parametro per la navigazione a EncryptScreen.
+

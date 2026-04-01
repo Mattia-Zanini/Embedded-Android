@@ -24,8 +24,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun EncryptScreen(messageCrypt : String, goHome: () -> Unit) {
-    var encyptedMessage by rememberSaveable { mutableStateOf("") }
+fun MessageScreen(goToEncrypted: () -> Unit) : String {
+    var message by rememberSaveable { mutableStateOf("") }
 
     Column(
         modifier = Modifier
@@ -35,20 +35,22 @@ fun EncryptScreen(messageCrypt : String, goHome: () -> Unit) {
     ) {
         Spacer(modifier = Modifier.height(32.dp))
 
-        Text(
-            text = stringResource(R.string.encrypt_text)
+        TextField(
+            value = message,
+            onValueChange = { message = it },
+            modifier = Modifier.fillMaxWidth(),
+            textStyle = TextStyle(fontSize = 20.sp),
+            placeholder = { Text(text = stringResource(R.string.message_hint)) },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
+            singleLine = true
         )
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        Text(
-            text = messageCrypt.reversed()
-        )
-
-        Spacer(modifier = Modifier.height(20.dp))
-
-        Button(onClick = goHome) {
-            Text(text = "Go back")
+        Button(onClick = goToEncrypted) {
+            Text(text = stringResource(R.string.next))
         }
     }
+
+    return message
 }

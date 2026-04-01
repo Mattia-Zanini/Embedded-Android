@@ -6,27 +6,18 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun EncryptScreen(messageCrypt : String, goHome: () -> Unit) {
-    var encyptedMessage by rememberSaveable { mutableStateOf("") }
-
+fun WelcomeScreen(onStartClicked: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -36,19 +27,16 @@ fun EncryptScreen(messageCrypt : String, goHome: () -> Unit) {
         Spacer(modifier = Modifier.height(32.dp))
 
         Text(
-            text = stringResource(R.string.encrypt_text)
+            text = stringResource(R.string.welcome_text),
+            fontSize = 20.sp,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.fillMaxWidth()
         )
 
-        Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(32.dp))
 
-        Text(
-            text = messageCrypt.reversed()
-        )
-
-        Spacer(modifier = Modifier.height(20.dp))
-
-        Button(onClick = goHome) {
-            Text(text = "Go back")
+        Button(onClick = onStartClicked) {
+            Text(text = stringResource(R.string.start))
         }
     }
 }
