@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun MessageScreen(goToEncrypted: () -> Unit) : String {
+fun MessageScreen(goToEncrypted: (String) -> Unit) {
     var message by rememberSaveable { mutableStateOf("") }
 
     Column(
@@ -47,10 +47,8 @@ fun MessageScreen(goToEncrypted: () -> Unit) : String {
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        Button(onClick = goToEncrypted) {
+        Button(onClick = { goToEncrypted(message) }) {
             Text(text = stringResource(R.string.next))
         }
     }
-
-    return message
 }

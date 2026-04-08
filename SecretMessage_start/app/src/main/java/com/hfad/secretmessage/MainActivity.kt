@@ -1,5 +1,6 @@
 package com.hfad.secretmessage
 
+import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -23,7 +24,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             SecretMessageTheme {
                 val navController = rememberNavController()
-                var txt = ""
+
+                // ------------------------------------------------------------------------
+                // LEZIONE 17 E 19
+                // ------------------------------------------------------------------------
 
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     NavHost(
@@ -36,15 +40,20 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable("message") {
-                            txt = MessageScreen(
-                                goToEncrypted = { navController.navigate("encrypt") }
+                            MessageScreen(
+                                goToEncrypted = { m ->
+                                    navController.navigate("encrypt/${Uri.encode(m)}")
+                                    { popUpTo("welcome") }
+                                }
                             )
                         }
-                        composable("encrypt") {
-                            EncryptScreen(
-                                messageCrypt = txt,
-                                goHome = { navController.popBackStack("welcome", false) }
-                            )
+                        composable("encrypt/{message}") { backStackEntry ->
+                            EncryptScreen(Uri.decode(backStackEntry.arguments?.getString("message").orEmpty()))
+                            /*EncryptScreen(
+                                //messageCrypt = txt,
+                                // goHome = {navController.popBackStack()}
+                                //goHome = { navController.popBackStack("welcome", false) } //ma va tolto il popUpTo su messageScreen
+                            )*/
                         }
                     }
                 }
