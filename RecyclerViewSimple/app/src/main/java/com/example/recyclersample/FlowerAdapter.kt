@@ -16,30 +16,41 @@
 
 package com.example.recyclersample
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
+// L'adapter e' responsabile di TUTTI i dati
 class FlowerAdapter(private val flowerList: Array<String>) :
     RecyclerView.Adapter<FlowerAdapter.FlowerViewHolder>() {
+    private val mTAG = this.javaClass.simpleName
 
     // Describes an item view and its place within the RecyclerView
     class FlowerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val flowerTextView: TextView = itemView.findViewById(R.id.flower_text)
+        private val positionTextView: TextView = itemView.findViewById(R.id.position_text)
 
-        fun bind(word: String) {
+        fun bind(word: String, pos: Int) {
             flowerTextView.text = word
+            positionTextView.text = pos.toString().padStart(2, '0')
         }
     }
 
     // Returns a new ViewHolder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FlowerViewHolder {
+        // il parent e' passato dal recyclerview e grazie al parent recupero il context
         val view = LayoutInflater.from(parent.context)
+            // dall'inflate ottengo una reference, ottengo la radice della gerachia delle classi, in questo caso un FrameLayout
             .inflate(R.layout.flower_item, parent, false)
 
-        return FlowerViewHolder(view)
+        val viewHolder = FlowerViewHolder(view)
+        val viewHolderReference = "@${viewHolder.hashCode().toString(16)}"
+        Log.d(mTAG, "Creazione ViewHolder: $viewHolderReference")
+
+        return viewHolder
     }
 
     // Returns size of data list
@@ -47,8 +58,12 @@ class FlowerAdapter(private val flowerList: Array<String>) :
         return flowerList.size
     }
 
+    // Il view holder non conosce tutti i dati
     // Displays data at a certain position
     override fun onBindViewHolder(holder: FlowerViewHolder, position: Int) {
-        holder.bind(flowerList[position])
+        holder.bind(flowerList[position], position + 1)
+        // Log only the ViewHolder reference hash
+        val viewHolderReference = "@${holder.hashCode().toString(16)}"
+        Log.d(mTAG, "Aggiornato il dato del ViewHolder: $viewHolderReference")
     }
 }

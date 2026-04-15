@@ -1,0 +1,27 @@
+ESERCIZIO 1
+Ripartire da RecyclerViewSimple.
+Aggiungere una seconda activity chiamata DetailActivity che mostra un testo fisso
+al centro dello schermo. DetailActivity viene visualizzata quando si tocca il nome di
+un fiore.
+
+Suggerimento: vanno creati DetailActivity.kt e activity_detail.xml.
+Suggerimento: vanno modificati AndroidManifest.xml, strings.xml e FlowerAdapter.kt.
+
+Suggerimento per FlowerAdapter: impostare un onCLickListener sulla TextView
+che contiene il nome del fiore.
+
+
+ESERCIZIO 2 (guidato dal docente)
+Quando si tocca il nome "n" del fiore, DetailActivity ora dice "n is a nice flower".
+
+Suggerimento per FlowerAdapter: il nome del fiore può essere passato come intent extra
+(metodo putExtra(chiave, valore) di Intent).
+
+Suggerimento per DetailActivity: l'intent ricevuto può essere recuperato con il
+metodo getIntent() di Activity. L'intent extra può essere recuperato con il
+metodo getStringExtra(chiave) di Intent.
+
+Suggerimento per FlowerAdapter: si può recuperare il nome del fiore
+direttamente dalla TextView (è semplicemente v.text se il listener
+è stato impostato sulla TextView).
+

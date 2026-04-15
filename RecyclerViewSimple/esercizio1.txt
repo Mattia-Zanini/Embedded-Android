@@ -1,0 +1,19 @@
+ESERCIZIO 1
+Aggiungere almeno 5 nomi di fiori alla lista
+
+
+ESERCIZIO 2
+Aggiungere un messaggio di log
+a) nel metodo in cui viene creato un nuovo ViewHolder,
+b) nel metodo in cui un ViewHolder viene riempito di dati
+
+
+ESERCIZIO 3
+Modificare la struttura della lista in modo che
+alla SX del nome del fiore compaia il numero dell'elemento
+
+Suggerimento generale: si può modificare o non modificare Datasource,
+a seconda di come si implementa il resto
+
+Suggerimento per flower_item.xml: usare un LinearLayout
+
