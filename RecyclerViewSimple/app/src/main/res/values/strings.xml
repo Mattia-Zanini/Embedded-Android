@@ -16,6 +16,7 @@
 
 <resources>
     <string name="app_name">RecyclerView Sample</string>
+    <string name="default_text_flower">e proprio un bel fiore</string>
 
     <!-- Add in flower names  -->
     <string-array name="flower_array">

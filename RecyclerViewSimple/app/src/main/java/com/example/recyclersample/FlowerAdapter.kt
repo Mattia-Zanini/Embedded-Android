@@ -16,6 +16,8 @@
 
 package com.example.recyclersample
 
+import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -24,9 +26,17 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 // L'adapter e' responsabile di TUTTI i dati
-class FlowerAdapter(private val flowerList: Array<String>) :
+class FlowerAdapter(private val flowerList: Array<String>, private val c : Context) :
     RecyclerView.Adapter<FlowerAdapter.FlowerViewHolder>() {
     private val mTAG = this.javaClass.simpleName
+
+    /*private val onClickListener = View.OnClickListener { u ->
+        val flowerName = (u as TextView).text.toString()
+
+        val intent = Intent(u.context, DetailActivity::class.java)
+        intent.putExtra(DetailActivity.ARG_FLOWER_NAME, flowerName)
+        u.context.startActivity(intent)
+    }*/
 
     // Describes an item view and its place within the RecyclerView
     class FlowerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -36,6 +46,14 @@ class FlowerAdapter(private val flowerList: Array<String>) :
         fun bind(word: String, pos: Int) {
             flowerTextView.text = word
             positionTextView.text = pos.toString().padStart(2, '0')
+
+            val myIntent = Intent(itemView.context, DetailActivity::class.java).apply {
+                putExtra(DetailActivity.ARG_FLOWER_NAME, flowerTextView.text)
+            }
+
+            flowerTextView.setOnClickListener {
+                itemView.context.startActivity(myIntent)
+            }
         }
     }
 
@@ -49,6 +67,9 @@ class FlowerAdapter(private val flowerList: Array<String>) :
         val viewHolder = FlowerViewHolder(view)
         val viewHolderReference = "@${viewHolder.hashCode().toString(16)}"
         Log.d(mTAG, "Creazione ViewHolder: $viewHolderReference")
+
+        //val tv : TextView = view.findViewById(R.id.flower_text)
+        //tv.setOnClickListener(onClickListener)
 
         return viewHolder
     }

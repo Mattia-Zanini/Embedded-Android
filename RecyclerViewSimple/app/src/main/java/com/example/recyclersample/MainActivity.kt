@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         val flowerList = Datasource(this).getFlowerList()
 
         val recyclerView: RecyclerView = findViewById(R.id.recycler_view)
-        recyclerView.adapter = FlowerAdapter(flowerList) // imposta l'adapter
+        recyclerView.adapter = FlowerAdapter(flowerList, this) // imposta l'adapter
 
         // Solitamente si accede ai dati in un altro modo, il fatto di
         // passare direttamente la lista dei dati e' una scelta un po' brutale
