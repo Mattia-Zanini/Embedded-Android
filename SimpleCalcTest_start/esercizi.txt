@@ -1,0 +1,56 @@
+ESERCIZIO 1 (guidato dal docente)
+In CalculatorTest testare che 1.0 + 1.0 = 2.0 con delta=0.
+
+
+ESERCIZIO 2
+In CalculatorTest testare che, con delta=0:
+-1.0 + 2.0 = 1.0
+-1.0 + -17.0 = -18.0
+1.111 + 1.111 = 2.222
+123456781.0 + 111111111.0 = 234567892.0
+1.0 - 1.0 = 0.0
+1.0 - 17.0 = -16.0
+32.0 / 2.0 = 16.0
+32.0 * 2.0 = 64.0
+Sono 8 test in tutto.
+
+
+ESERCIZIO 3 (guidato dal docente)
+In CalculatorTest, test della divisione per zero.
+Si può fare meglio di un assertEquals(...).
+Modificare Calculator e MainActivity di conseguenza.
+
+
+ESERCIZIO 4 (guidato dal docente)
+In MainActivityTestX, testare che 2 + 2 = 4.
+Testare poi che quando si inserisce "1.0" nei campi di input
+e si preme SUM il risultato nel campo di output è "2.0".
+
+
+ESERCIZIO 5 (per casa)
+In MainActivityTestX, testare che quando si inserisce
+"32.0" e "0.0" nei campi di input e si preme DIV
+il risultato nel campo di output è "Error".
+
+
+ESERCIZIO 6 (guidato dal docente)
+In MainActivityTest, test della conversione degli operandi.
+
+
+ESERCIZIO 7 (per casa)
+In MainActivityTest, testare che quando l'EditText di
+un operando non contiene testo il metodo getOperand
+di MainActivity solleva una NumberFormatException
+
+
+ESERCIZIO 8 (guidato dal docente)
+In MainActivityInstrumentedTest, testare che quando
+si inserisce "1.0" nei campi di input e si preme SUM
+il risultato nel campo di output è "2.0".
+
+
+ESERCIZIO 9
+In MainActivityInstrumentedTest, testare che quando si
+inserisce "32.0" e "0.0" nei campi di input e si preme DIV
+il risultato nel campo di output è "Error".
+
