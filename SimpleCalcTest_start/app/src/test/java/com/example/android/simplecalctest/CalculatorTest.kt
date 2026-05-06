@@ -72,9 +72,12 @@ class CalculatorTest {
     }
 
     //ESERCIZIO 3
-    @Test
-    fun zeroDivision() {
+    @Test(expected = IllegalArgumentException::class)
+    fun divByZeroThrows(){
+       mCalculator!!.div(32.0, 0.0)
+    }
+    /*fun zeroDivision() {
         val result = mCalculator!!.div(32.0, 0.0)
         assertEquals(Double.POSITIVE_INFINITY, result, 0.0)
-    }
+    }*/
 }
