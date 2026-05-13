@@ -4,15 +4,20 @@ import android.os.Build
 import android.widget.EditText
 import junit.framework.TestCase.assertEquals
 import org.junit.Before
+import org.junit.FixMethodOrder
 import org.junit.Test
+import org.junit.internal.MethodSorter
 import org.junit.runner.RunWith
+import org.junit.runners.MethodSorters
 import org.robolectric.Robolectric
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
+import java.lang.reflect.Method
 
 // A differenza del file MainActivityTestX qui utilizzeremo SOLO roboelectric
 @RunWith(RobolectricTestRunner::class)
 @Config(minSdk = Build.VERSION_CODES.Q, maxSdk = Build.VERSION_CODES.BAKLAVA)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class MainActivityTest {
     private lateinit var activity: MainActivity
 
@@ -60,5 +65,31 @@ class MainActivityTest {
         // questo e' un metodo che e' stato aggiunto, non e' un metodo che ho scritto io
         val d = activity.getOperand(operandOne)
         assertEquals(428.96, d, 0.0)
+    }
+
+    @Test
+    fun operandConversion2_fp(){
+        operandOne.setText("3.14")
+
+        // questo e' un metodo che e' stato aggiunto, non e' un metodo che ho scritto io
+        val d = activity.getOperand(operandOne)
+        assertEquals(3.14, d, 0.0)
+    }
+
+    @Test
+    fun operandConversion3_neg(){
+        operandOne.setText("-498.96")
+
+        // questo e' un metodo che e' stato aggiunto, non e' un metodo che ho scritto io
+        val d = activity.getOperand(operandOne)
+        assertEquals(-498.96, d, 0.0)
+    }
+
+    @Test(expected = NumberFormatException::class)
+    fun operandConversion4_empty(){
+        operandOne.setText("")
+
+        // questo e' un metodo che e' stato aggiunto, non e' un metodo che ho scritto io
+        val d = activity.getOperand(operandOne)
     }
 }
