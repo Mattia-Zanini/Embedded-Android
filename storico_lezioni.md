@@ -17,6 +17,7 @@ Questo documento mappa i progetti e le applicazioni Android Studio presenti in q
 | [RecyclerViewSimple](file:///Users/mattia/Documents/GitHub/Embedded-Android/RecyclerViewSimple) | **Embedded 19**, **Embedded 22** & **Embedded 25** (22 Apr)* | 08 Apr 2026 / 15 Apr 2026 / 22 Apr 2026 | Introduzione alla RecyclerView (08 Apr), esercizi 2 e 3 (15 Apr) e implementazione di una seconda Activity (22 Apr). |
 | [SimpleCalcTest_start](file:///Users/mattia/Documents/GitHub/Embedded-Android/SimpleCalcTest_start) | **Embedded 28**, **Embedded 31** & **Embedded 34** | 29 Apr 2026 / 06 Mag 2026 / 13 Mag 2026 | Test unitari (29 Apr), test con Robolectric (06 Mag) e test strumentati con JUnit/Espresso (13 Mag). |
 | [RoomWordsSample_start](file:///Users/mattia/Documents/GitHub/Embedded-Android/RoomWordsSample_start) | **Embedded 34** & **Embedded 35** | 13 Mag 2026 / 14 Mag 2026 | Introduzione a Room (13 Mag) e implementazione di Room, DAO e Repository (14 Mag). |
+| [HelloWithButtonJNI](file:///Users/mattia/Documents/GitHub/Embedded-Android/HelloWithButtonJNI) | **Embedded 36** | 14 Giu 2026 | Introduzione a NDK con JNI e note su concorrenza e gestione processi. |
 
 *\* Nota: La lezione del 22 Aprile non era inclusa esplicitamente nella lista iniziale delle lezioni (che saltava da Embedded 24 a Embedded 26), ma nel repository è presente un commit in quella data che corrisponde a mercoledì 22 Aprile (Embedded 25).*
 
@@ -80,3 +81,8 @@ Questo documento mappa i progetti e le applicazioni Android Studio presenti in q
 * **Progetto:** [RoomWordsSample_start](file:///Users/mattia/Documents/GitHub/Embedded-Android/RoomWordsSample_start)
 * **Commit:** `b5fd4d8` - *"lezione 34, implementazione Room, Dao e Repository"*
 * **Attività:** Implementazione del database locale SQLite con Room, definizione del Data Access Object (DAO) e del pattern Repository.
+
+### 12. 14 Giugno 2026 (Embedded 36)
+* **Progetto:** [HelloWithButtonJNI](file:///Users/mattia/Documents/GitHub/Embedded-Android/HelloWithButtonJNI)
+* **Commit:** `fcdee7d` - *"introdotto NDK con JNI e note su concorrenza e processi"*
+* **Attività:** Introduzione ad Android NDK/JNI (integrazione C++ via CMake), programmazione concorrente (Main Thread, worker threads, coroutine) e gestione del ciclo di vita dei processi.
